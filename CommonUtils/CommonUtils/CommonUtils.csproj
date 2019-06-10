@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFrameworks>net4.6.1;net4.7.2</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="WindowSkin\" />
+    <Folder Include="WindowsService\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cogito.Web.UI" Version="3.0.0" />
+    <PackageReference Include="ICSharpCode.SharpZipLib.Patched" Version="0.86.5.1" />
+    <PackageReference Include="iTextSharp" Version="5.5.13" />
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="MySql.Data" Version="8.0.15" />
+    <PackageReference Include="ServiceStack.Redis" Version="5.5.0" />
+    <PackageReference Include="ZedGraph" Version="5.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+
+</Project>

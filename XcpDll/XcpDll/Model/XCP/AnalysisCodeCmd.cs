@@ -1,0 +1,85 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AnalysisAgreeMent.Model.XCP
+{
+
+    public enum CodeCommand
+    {
+        NON_EXIST_FILE,
+        BEGINMOD_COMMON,
+        TRANSPORT_LAYER_INSTANCE,
+        XCP_ON_CAN_BAUDRATE,
+        XCP_ON_CAN_SYNC,
+        XCP_ON_CAN_10,
+        XCP_ON_CAN_100,
+        XCP_ON_CAN_SEND_REV_ID,
+        XCP_ON_CAN_FAIL,
+        XCP_ON_CAN_SUCCESS,
+        MEASUREMENT_MASK,
+        MEASUREMENT_ADDRESS,
+        CHARACTERISTIC_ADDRESS,
+        CHARACTERISTIC_OX,
+        CHARACTERISTIC_V_RANGE,
+        CHARACTERISTIC_V_MIN_VALUE,
+        CHARACTERISTIC_V_MAX_VALUE,
+        CHARACTERISTIC_V_COUNT,
+        CHARACTERISTIC_X_COUNT,
+        CHARACTERISTIC_X_MIN_VALUE,
+        CHARACTERISTIC_X_MAX_VALUE,
+        CHARACTERISTIC_Y_COUNT,
+        CHARACTERISTIC_Y_MIN_VALUE,
+        CHARACTERISTIC_Y_MAX_VALUE,
+        CHARACTERISTIC_FAIL,
+        CHARACTERISTIC_SUCCESS,
+        DEAFAULT_START_ADDRES,
+        DEAFAULT_OFFSET,
+        DEAFAULT_SEGMENT_NUMBER,
+        DEAFAULT_PAGE_COUNT,
+        DEAFAULT_PAGE_NUMBER,
+        DEAFAULT_SUCCESS,
+        DEAFUALT_FAIL,
+        IS_XCP,
+        RESULT,
+        METHOD_FUN_RESULT,
+        METHOD_RAT_EXPRESS,
+        METHOD_RAT_EXPRESS_CAL,
+        METHOD_VERT_EXPRESS_RESULT,
+        METHOD_VERT_EXPRESS,
+        METHOD_VERT_EXPRESS_CAL,
+        METHOD_RAT_FUN_NONE,
+        METHOD_WRITE_1,
+        METHOD_WRITE_2,
+        METHOD_WRITE_3,
+        METHOD_WRITE_4,
+        METHOD_WRITE_5,
+        METHOD_WRITE_6,
+        METHOD_WRITE_7,
+        METHOD_WRITE_8,
+        METHOD_WRITE_9,
+        METHOD_WRITE_10,
+        METHOD_WRITE_11,
+        METHOD_WRITE_12,
+        METHOD_WRITE_13,
+        METHOD_WRITE_14,
+        METHOD_WRITE_15,
+        METHOD_WRITE_16,
+        METHOD_WRITE_17,
+        METHOD_WRITE_18,
+        METHOD_WRITE_19,
+        METHOD_WRITE_20,
+        METHOD_WRITE_21,
+        METHOD_WRITE_22,
+        METHOD_WRITE_23,
+        READ_LIST_FAIL,
+        WRITE_LIST_FAIL
+    }
+
+    public static class AnalysisCodeCmd
+    {
+
+    }
+}
