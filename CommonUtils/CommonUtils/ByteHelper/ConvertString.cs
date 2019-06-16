@@ -9,6 +9,37 @@ namespace CommonUtils.ByteHelper
 {
     public class ConvertString
     {
+        #region 字符串转定长字符串
+        /// <summary>
+        /// 字符串转为定长字符串，空内容补空格
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="len"></param>
+        /// <param name="output"></param>
+        private void WriteContent(string input,int len,out string output)
+        {
+            byte[] ognInput = Encoding.Default.GetBytes(input);
+
+            //声明指定长度字符串
+            byte[] arrayInput = new byte[len];
+
+            //pid
+            for (int i = 0; i < arrayInput.Length; i++)
+            {
+                if (i < ognInput.Length)
+                {
+                    arrayInput[i] = ognInput[i];
+                }
+                else
+                {
+                    arrayInput[i] = 0x20;
+                }
+            }
+            output = Encoding.Default.GetString(arrayInput);
+        }
+        #endregion
+
+        #region 十进制转十六进制
         /// <summary>
         /// 十进制字符串转十六进制
         /// </summary>
@@ -38,7 +69,9 @@ namespace CommonUtils.ByteHelper
             }
             return "";
         }
+        #endregion
 
+        #region 十六进制转十进制
         /// <summary>
         /// 十六进制字符串转十进制
         /// </summary>
@@ -68,5 +101,6 @@ namespace CommonUtils.ByteHelper
             }
             return "";
         }
+        #endregion
     }
 }
