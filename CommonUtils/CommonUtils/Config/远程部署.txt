@@ -1,0 +1,4 @@
+﻿远程部署方式：
+	web/web Deploy
+	FTP
+本地部署：发布本地IIS
