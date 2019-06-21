@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CommonUtils.Logger;
 
-namespace CommonUtils.ByteHelper
+namespace CommonUtils.CalculateAndString
 {
     public class ConvertString
     {
