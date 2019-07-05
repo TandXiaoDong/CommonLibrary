@@ -63,6 +63,7 @@ namespace CommonUtils.FileHelper
             openFileDialog1.Filter = fileType;//"(*.exe)|*.exe"
             //openFileDialog1.FileName = "Mysoft.CRE.WindowService.exe";
             openFileDialog1.Title = tip;
+            openFileDialog1.RestoreDirectory = true;
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 fileProperty.FileName = openFileDialog1.FileName;
