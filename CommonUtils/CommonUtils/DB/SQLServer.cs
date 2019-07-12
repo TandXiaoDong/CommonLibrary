@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Data.Common;
 using System.Collections;
+using CommonUtils.Logger;
 
 namespace CommonUtils.DB
 {
@@ -682,7 +683,7 @@ namespace CommonUtils.DB
                 {
                     Transaction.Rollback();
                 }
-
+                LogHelper.Log.Error("ExecuteNonQuery ERROR "+ex.Message);
                 Command.Dispose();
                 return 0;
             }
