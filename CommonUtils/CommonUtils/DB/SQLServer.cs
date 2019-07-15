@@ -80,22 +80,30 @@ namespace CommonUtils.DB
         /// <param name="commandParameters">SqlParameters数组</param>
         private static void AttachParameters(SqlCommand command, SqlParameter[] commandParameters)
         {
-            if (command == null) throw new ArgumentNullException("command");
-            if (commandParameters != null)
+            try
             {
-                foreach (SqlParameter p in commandParameters)
+                if (command == null)
+                    throw new ArgumentNullException("command");
+                if (commandParameters != null)
                 {
-                    if (p != null)
+                    foreach (SqlParameter p in commandParameters)
                     {
-                        // 检查未分配值的输出参数,将其分配以DBNull.Value.
-                        if ((p.Direction == ParameterDirection.InputOutput || p.Direction == ParameterDirection.Input) &&
-                            (p.Value == null))
+                        if (p != null)
                         {
-                            p.Value = DBNull.Value;
+                            // 检查未分配值的输出参数,将其分配以DBNull.Value.
+                            if ((p.Direction == ParameterDirection.InputOutput || p.Direction == ParameterDirection.Input) &&
+                                (p.Value == null))
+                            {
+                                p.Value = DBNull.Value;
+                            }
+                            command.Parameters.Add(p);
                         }
-                        command.Parameters.Add(p);
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.Log.Error($"AttachParameters Exception {ex.Message}\r\n{ex.StackTrace}");
             }
             //应用完成后清除原所有参数值
             // ClearIDataParameter();
@@ -109,11 +117,13 @@ namespace CommonUtils.DB
         /// <param name="commandText">存储过程名或都SQL命令文本</param>
         /// <param name="commandParameters">和命令相关联的SqlParameter参数数组,如果没有参数为'null'</param>
         /// <param name="mustCloseConnection"><c>true</c> 如果连接是打开的,则为true,其它情况下为false.</param>
-        private static void PrepareCommand(SqlConnection Connection, SqlCommand Command, SqlTransaction transaction, CommandType commandType, string commandText, SqlParameter[] commandParameters, out bool mustCloseConnection)
+        private static void PrepareCommand(SqlConnection Connection, SqlCommand Command, SqlTransaction transaction, CommandType commandType, 
+            string commandText, SqlParameter[] commandParameters, out bool mustCloseConnection)
         {
             try
             {
-                if (Command == null) throw new ArgumentNullException("command");
+                if (Command == null)
+                    throw new ArgumentNullException("command");
                 if (commandText == null || commandText.Length == 0) throw new ArgumentNullException("commandText");
 
                 if (Connection.State != ConnectionState.Open)
@@ -135,7 +145,8 @@ namespace CommonUtils.DB
                 // 分配事务
                 if (transaction != null)
                 {
-                    if (transaction.Connection == null) throw new ArgumentException("The transaction was rollbacked or commited, please provide an open transaction.", "transaction");
+                    if (transaction.Connection == null)
+                        throw new ArgumentException("The transaction was rollbacked or commited, please provide an open transaction.", "transaction");
                     Command.Transaction = transaction;
                 }
 
@@ -145,13 +156,13 @@ namespace CommonUtils.DB
                 // 分配命令参数
                 if (commandParameters != null)
                 {
-                    //SqlParameter[] dpitem =
                     AttachParameters(Command, commandParameters);
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 mustCloseConnection = false;
+                LogHelper.Log.Error($"{ex.Message}\r\n{ex.StackTrace}");
             }
         }
         #endregion
@@ -629,7 +640,8 @@ namespace CommonUtils.DB
         /// <returns>返回影响的行数</returns>
         public static int ExecuteNonQuery(CommandType commandType, string commandText, params SqlParameter[] commandParameters)
         {
-            if (SqlConnectionString == null || SqlConnectionString.Length == 0) throw new ArgumentNullException("ConnectionString");
+            if (SqlConnectionString == null || SqlConnectionString.Length == 0)
+                throw new ArgumentNullException("ConnectionString");
 
             using (SqlConnection connection = new SqlConnection(SqlConnectionString))
             {
@@ -789,17 +801,25 @@ namespace CommonUtils.DB
         /// <returns>返回影响的行数</returns>
         public static int ExecuteNonQuery(string spName, params SqlParameter[] commandParameters)
         {
-
-            if (spName == null || spName.Length == 0) throw new ArgumentNullException("spName");
-
-            // 如果有参数值
-            if ((commandParameters != null) && (commandParameters.Length > 0))
+            try
             {
-                return ExecuteNonQuery(CommandType.StoredProcedure, spName, commandParameters);
+                if (spName == null || spName.Length == 0)
+                    throw new ArgumentNullException("spName");
+
+                // 如果有参数值
+                if ((commandParameters != null) && (commandParameters.Length > 0))
+                {
+                    return ExecuteNonQuery(CommandType.Text, spName, commandParameters);
+                }
+                else
+                {
+                    return ExecuteNonQuery(CommandType.Text, spName);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return ExecuteNonQuery(CommandType.StoredProcedure, spName);
+                LogHelper.Log.Error($"{ex.Message}\r\n{ex.StackTrace}");
+                return -1;
             }
         }
 
