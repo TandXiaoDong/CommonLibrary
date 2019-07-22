@@ -42,6 +42,16 @@ namespace CommonUtils.CalculateAndString
         }
         #endregion
 
+        /// <summary>
+        /// 包含数字和字母
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool IsMatchPassword(string value)
+        {
+            return Regex.IsMatch(value, @"^[A-Za-z0-9]+$");
+        }
+
         #region 是否为整数
         /// <summary>
         /// 是否为整数

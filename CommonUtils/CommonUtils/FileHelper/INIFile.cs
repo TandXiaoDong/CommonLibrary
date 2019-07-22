@@ -59,10 +59,10 @@ namespace CommonUtils.FileHelper
 
 		}
 
-        public static string GetValue(string config, string key, string path)
+        public static string GetValue(string section, string key, string path)
         {
             StringBuilder s = new StringBuilder(1024);
-            GetPrivateProfileString(config, key, "", s, 1024, path);
+            GetPrivateProfileString(section, key, "", s, 1024, path);
 
             string result = s.ToString().Replace(" ", "");
             if (result.Contains(";"))
@@ -72,11 +72,11 @@ namespace CommonUtils.FileHelper
             return result;
         }
 
-        public static void SetValue(string config, string key, string value, string path)
+        public static void SetValue(string section, string key, string value, string path)
         {
             try
             {
-                WritePrivateProfileString(config, key, value, path);
+                WritePrivateProfileString(section, key, value, path);
             }
             catch (Exception ex)
             {
