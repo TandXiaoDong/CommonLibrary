@@ -116,11 +116,11 @@ namespace CommonUtils.FileHelper
             return path;
         }
 
-        public static string SaveAs(string filter)
+        public static string SaveAs(string filter,string startPath)
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Title = "";
-            sfd.InitialDirectory = @"C:\";
+            sfd.InitialDirectory = startPath;
             sfd.Filter = filter;
             
             if (sfd.ShowDialog() == DialogResult.OK)
