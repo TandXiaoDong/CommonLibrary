@@ -167,6 +167,24 @@ namespace CommonUtils.DB
         }
         #endregion
 
+        public static string TestSQLConnectState()
+        {
+            if (SqlConnectionString == null || SqlConnectionString.Length == 0)
+                throw new ArgumentNullException("ConnectionString");
+            SqlConnection connection = new SqlConnection(SqlConnectionString);
+            try
+            {
+                connection.Open();
+                if (connection.State != ConnectionState.Open)
+                    return "SQLServer ConnectionState is not open!";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "";
+        }
+
         #region ExecuteDataSet 数据表
         /// <summary>
         /// 执行指定数据库连接字符串的命令,返回DataSet.

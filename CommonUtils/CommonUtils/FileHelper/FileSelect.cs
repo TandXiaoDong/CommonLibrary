@@ -122,6 +122,7 @@ namespace CommonUtils.FileHelper
             sfd.Title = "";
             sfd.InitialDirectory = startPath;
             sfd.Filter = filter;
+            sfd.RestoreDirectory = true;
             
             if (sfd.ShowDialog() == DialogResult.OK)
             {
