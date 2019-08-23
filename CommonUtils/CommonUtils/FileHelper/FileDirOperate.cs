@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections;
 
-namespace EquipmentClient.IO
+namespace CommonUtils.FileHelper
 {
     public static class FileDirOperate
     {

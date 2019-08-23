@@ -22,7 +22,28 @@
   <ItemGroup>
     <Reference Include="System.Configuration" />
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
+    <Reference Include="Telerik.WinControls">
+      <HintPath>Lib\telerik\Telerik.WinControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.GridView">
+      <HintPath>Lib\telerik\Telerik.WinControls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI">
+      <HintPath>Lib\telerik\Telerik.WinControls.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="TelerikCommon">
+      <HintPath>Lib\telerik\TelerikCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="TelerikData">
+      <HintPath>Lib\telerik\TelerikData.dll</HintPath>
+    </Reference>
+    <Reference Include="TelerikExport">
+      <HintPath>Lib\telerik\TelerikExport.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
