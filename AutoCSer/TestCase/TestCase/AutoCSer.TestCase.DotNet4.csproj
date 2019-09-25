@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6E5950AB-69D8-433E-B73E-E1AB30D40FF7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoCSer.TestCase</RootNamespace>
+    <AssemblyName>AutoCSer.TestCase</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\DotNet4\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Release\DotNet4\AutoCSer.TestCase.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\AutoCSer.TestCase.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Release\DotNet4\AutoCSer.TestCase.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\DotNet4\AutoCSer.TestCase.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BinarySerialize.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CacheServer\Cache.cs" />
+    <Compile Include="CacheServer\Data.cs" />
+    <Compile Include="CacheServer\MesssageDistributor.cs" />
+    <Compile Include="CacheServer\QueueConsumer.cs" />
+    <Compile Include="CacheServer\QueueConsumers.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Data.cs" />
+    <Compile Include="DiskBlock\File.cs" />
+    <Compile Include="Json.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerPort.cs" />
+    <Compile Include="SimpleSerialize.cs" />
+    <Compile Include="TcpInternalServer\Emit\IServer.cs" />
+    <Compile Include="TcpInternalServer\Emit\Server.cs" />
+    <Compile Include="TcpInternalServer\Emit\Sum.cs" />
+    <Compile Include="TcpInternalServer\Json.cs" />
+    <Compile Include="TcpInternalServer\Member.cs" />
+    <Compile Include="TcpInternalServer\Session.cs" />
+    <Compile Include="TcpInternalSimpleServer\Emit\IServer.cs" />
+    <Compile Include="TcpInternalSimpleServer\Emit\Server.cs" />
+    <Compile Include="TcpInternalSimpleServer\Json.cs" />
+    <Compile Include="TcpInternalSimpleServer\Member.cs" />
+    <Compile Include="TcpInternalSimpleServer\Session.cs" />
+    <Compile Include="TcpInternalStreamServer\Emit\IServer.cs" />
+    <Compile Include="TcpInternalStreamServer\Emit\Server.cs" />
+    <Compile Include="TcpInternalStreamServer\Json.cs" />
+    <Compile Include="TcpInternalStreamServer\Member.cs" />
+    <Compile Include="TcpInternalStreamServer\Session.cs" />
+    <Compile Include="TcpOpenServer\Emit\Server.cs" />
+    <Compile Include="TcpOpenServer\Json.cs" />
+    <Compile Include="TcpOpenServer\Member.cs" />
+    <Compile Include="TcpOpenServer\Session.cs" />
+    <Compile Include="TcpOpenSimpleServer\Emit\Server.cs" />
+    <Compile Include="TcpOpenSimpleServer\Json.cs" />
+    <Compile Include="TcpOpenSimpleServer\Member.cs" />
+    <Compile Include="TcpOpenSimpleServer\Session.cs" />
+    <Compile Include="TcpOpenStreamServer\Emit\Server.cs" />
+    <Compile Include="TcpOpenStreamServer\Json.cs" />
+    <Compile Include="TcpOpenStreamServer\Member.cs" />
+    <Compile Include="TcpOpenStreamServer\Session.cs" />
+    <Compile Include="TcpStaticServer\Json.cs" />
+    <Compile Include="TcpStaticServer\Member.cs" />
+    <Compile Include="TcpStaticServer\Session.cs" />
+    <Compile Include="TcpStaticSimpleServer\Json.cs" />
+    <Compile Include="TcpStaticSimpleServer\Member.cs" />
+    <Compile Include="TcpStaticSimpleServer\Session.cs" />
+    <Compile Include="TcpStaticStreamServer\Json.cs" />
+    <Compile Include="TcpStaticStreamServer\Member.cs" />
+    <Compile Include="TcpStaticStreamServer\Session.cs" />
+    <Compile Include="Xml.cs" />
+    <Compile Include="{AutoCSer.TestCase}.AutoCSer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AutoCSer\AutoCSer.DotNet4.csproj">
+      <Project>{384CC69B-D0AF-4A82-806F-19C91F852E6C}</Project>
+      <Name>AutoCSer.DotNet4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AutoCSer\CacheServer\AutoCSer.CacheServer.DotNet4.csproj">
+      <Project>{7A0F21AC-A944-493B-898E-B933F53F2135}</Project>
+      <Name>AutoCSer.CacheServer.DotNet4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AutoCSer\DiskBlock\AutoCSer.DiskBlock.DotNet4.csproj">
+      <Project>{469F2B22-0258-4688-BDBF-31027F253B9A}</Project>
+      <Name>AutoCSer.DiskBlock.DotNet4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AutoCSer\FieldEquals\AutoCSer.FieldEquals.DotNet4.csproj">
+      <Project>{4C2ADD34-4294-4A15-BF4D-42C0158F0C0F}</Project>
+      <Name>AutoCSer.FieldEquals.DotNet4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AutoCSer\RandomObject\AutoCSer.RandomObject.DotNet4.csproj">
+      <Project>{8937DE06-DBE0-49B8-BF25-732E95329EEB}</Project>
+      <Name>AutoCSer.RandomObject.DotNet4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AutoCSer\TcpSimpleServer\AutoCSer.TcpSimpleServer.DotNet4.csproj">
+      <Project>{B1C64112-6340-435D-87EC-319091D948BB}</Project>
+      <Name>AutoCSer.TcpSimpleServer.DotNet4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AutoCSer\TcpStreamServer\AutoCSer.TcpStreamServer.DotNet4.csproj">
+      <Project>{ABE4842A-504B-4204-A9C8-4AD569A86D25}</Project>
+      <Name>AutoCSer.TcpStreamServer.DotNet4</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if exist "$(ProjectDir)..\..\AutoCSer\CodeGenerator\bin\Release\DotNet4\AutoCSer.CodeGenerator.exe" "$(ProjectDir)..\..\AutoCSer\CodeGenerator\bin\Release\DotNet4\AutoCSer.CodeGenerator.exe" "$(ProjectName)" "$(ProjectDir) " "$(TargetPath) " "$(TargetName)"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

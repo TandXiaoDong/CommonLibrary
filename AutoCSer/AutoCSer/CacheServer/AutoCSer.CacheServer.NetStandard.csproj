@@ -1,0 +1,340 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>AutoCSer.CacheServer</AssemblyName>
+    <RootNamespace>AutoCSer</RootNamespace>
+    <Version>1.1.0</Version>
+    <PackageId>AutoCSer.CacheServer.NetStandard</PackageId>
+    <Authors>肖进</Authors>
+    <Company />
+    <Description>AutoCSer.CacheServer 是一个高性能的日志型内存数据库缓存服务组件与消息队列组件。</Description>
+    <Copyright>Copyright © 肖进 2017</Copyright>
+    <PackageProjectUrl>http://www.autocser.com/Index.html</PackageProjectUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE;DEBUG;MONO;CacheServer;DotNetStandard;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE;MONO;CacheServer;DotNetStandard;RELEASE;NETSTANDARD2_0</DefineConstants>
+    <OutputPath>bin\Release\NetStandard\</OutputPath>
+    <DocumentationFile>bin\Release\NetStandard\AutoCSer.CacheServer.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="**" />
+    <EmbeddedResource Remove="**" />
+    <None Remove="**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Buffer.cs" />
+    <Compile Include="BufferCount.cs" />
+    <Compile Include="CacheGetStep.cs" />
+    <Compile Include="CacheGetter.cs" />
+    <Compile Include="CacheManager.cs" />
+    <Compile Include="CacheReturnParameter.cs" />
+    <Compile Include="Cache\Lock\QueueTaskThread\Dispose.cs" />
+    <Compile Include="Cache\Lock\QueueTaskThread\Enter.cs" />
+    <Compile Include="Cache\Lock\QueueTaskThread\Exit.cs" />
+    <Compile Include="Cache\Lock\QueueTaskThread\Node.cs" />
+    <Compile Include="Cache\Lock\QueueTaskThread\Thread.cs" />
+    <Compile Include="Cache\Lock\QueueTaskThread\TryEnter.cs" />
+    <Compile Include="Cache\MessageQueue\DistributionConfig.cs" />
+    <Compile Include="Cache\MessageQueue\DistributionFileReader.cs" />
+    <Compile Include="Cache\MessageQueue\DistributionMessageItem.cs" />
+    <Compile Include="Cache\MessageQueue\DistributionMessageState.cs" />
+    <Compile Include="Cache\MessageQueue\Distributor.cs" />
+    <Compile Include="Cache\MessageQueue\FileReaderBase.cs" />
+    <Compile Include="Cache\MessageQueue\DistributionMessageGetter.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\DistributionOnTimer.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\GetDistributionMessage.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\GetDistributionSendCount.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\Null.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\SetDistributionIdentity.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\SetDistributionIdentitys.cs" />
+    <Compile Include="Cache\Value\ArrayHeap.cs" />
+    <Compile Include="Cache\Value\Bitmap.cs" />
+    <Compile Include="Cache\MessageQueue\Buffer.cs" />
+    <Compile Include="Cache\MessageQueue\BufferCount.cs" />
+    <Compile Include="Cache\MessageQueue\ConfigLoader.cs" />
+    <Compile Include="Cache\MessageQueue\ReaderConfig.cs" />
+    <Compile Include="Cache\MessageQueue\UnionType.cs" />
+    <Compile Include="Cache\MessageQueue\PacketIndex.cs" />
+    <Compile Include="Cache\MessageQueue\FileWriter.cs" />
+    <Compile Include="Cache\MessageQueue\FileReader.cs" />
+    <Compile Include="Cache\MessageQueue\MessageItem.cs" />
+    <Compile Include="Cache\MessageQueue\Node.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\Append.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\DisposeReader.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\DisposeReaders.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\GetMessage.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\GetIdentity.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\Node.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\SetIdentity.cs" />
+    <Compile Include="Cache\MessageQueue\QueueTaskThread\Thread.cs" />
+    <Compile Include="Cache\MessageQueue\Consumers.cs" />
+    <Compile Include="Cache\NodeInfo.cs" />
+    <Compile Include="Cache\Value\Binary.cs" />
+    <Compile Include="Cache\Value\BitmapIndex.cs" />
+    <Compile Include="Cache\Value\Json.cs" />
+    <Compile Include="Cache\MessageQueue\Consumer.cs" />
+    <Compile Include="Cache\Constructor.cs" />
+    <Compile Include="Cache\Lock\Node.cs" />
+    <Compile Include="Cache\Lock\LinkNode.cs" />
+    <Compile Include="Cache\Value\UnionType.cs" />
+    <Compile Include="CombinationTemplateConfig.cs" />
+    <Compile Include="CombinationTemplate\Client.cs" />
+    <Compile Include="CombinationTemplate\IntegerUpdater.cs" />
+    <Compile Include="CombinationTemplate\NumberUpdater.cs" />
+    <Compile Include="DataStructure\Abstract\IValueNode.cs" />
+    <Compile Include="DataStructure\Abstract\MessageQueue.cs" />
+    <Compile Include="DataStructure\Abstract\NET4.5\MessageQueue.cs" />
+    <Compile Include="DataStructure\Bitmap.cs" />
+    <Compile Include="DataStructure\Heap.cs" />
+    <Compile Include="DataStructure\Lock.cs" />
+    <Compile Include="DataStructure\MessageQueue\Distributor.cs" />
+    <Compile Include="DataStructure\MessageQueue\NET4.5\Distributor.cs" />
+    <Compile Include="DataStructure\MessageQueue\NET4.5\QueueConsumer.cs" />
+    <Compile Include="DataStructure\MessageQueue\NET4.5\QueueConsumers.cs" />
+    <Compile Include="DataStructure\MessageQueue\QueueConsumer.cs" />
+    <Compile Include="DataStructure\MessageQueue\QueueConsumers.cs" />
+    <Compile Include="DataStructure\NET4.5\Bitmap.cs" />
+    <Compile Include="DataStructure\NET4.5\Heap.cs" />
+    <Compile Include="DataStructure\NET4.5\Lock.cs" />
+    <Compile Include="DataStructure\Parameter\NET4.5\QueryAsynchronousReturnArray.cs" />
+    <Compile Include="DataStructure\Parameter\NET4.5\QueryBoolValueAsynchronous.cs" />
+    <Compile Include="DataStructure\Parameter\QueryAsynchronousReturnArray.cs" />
+    <Compile Include="DataStructure\Parameter\QueryBoolValueAsynchronous.cs" />
+    <Compile Include="DataStructure\Parameter\Value.cs" />
+    <Compile Include="IdentityReturnParameter.cs" />
+    <Compile Include="Extension\CacheServer.cs" />
+    <Compile Include="DataStructure\Value\NET4.5\Binary.cs" />
+    <Compile Include="DataStructure\Value\NET4.5\Json.cs" />
+    <Compile Include="Extension\Memory.cs" />
+    <Compile Include="FileBackup.cs" />
+    <Compile Include="FileBuffers.cs" />
+    <Compile Include="Lock\AsynchronousManager.cs" />
+    <Compile Include="Lock\Manager.cs" />
+    <Compile Include="Lock\ManagerBase.cs" />
+    <Compile Include="Lock\Step.cs" />
+    <Compile Include="Lock\AsynchronousTimeoutManager.cs" />
+    <Compile Include="Lock\TimeoutManager.cs" />
+    <Compile Include="MessageQueue\Abstract\ConsumerStreamProcessor.cs" />
+    <Compile Include="MessageQueue\Abstract\DistributionConsumer.cs" />
+    <Compile Include="MessageQueue\Abstract\DistributionConsumerProcessor.cs" />
+    <Compile Include="MessageQueue\Abstract\DistributionConsumerStreamProcessor.cs" />
+    <Compile Include="MessageQueue\ConsumerStream.cs" />
+    <Compile Include="MessageQueue\ConsumerStreamProcessor.cs" />
+    <Compile Include="MessageQueue\ConfigLoader.cs" />
+    <Compile Include="MessageQueue\ConsumerConfig.cs" />
+    <Compile Include="MessageQueue\DistributionConsumer.cs" />
+    <Compile Include="MessageQueue\DistributionConsumerAsynchronous.cs" />
+    <Compile Include="MessageQueue\DistributionConsumerConfig.cs" />
+    <Compile Include="MessageQueue\DistributionConsumerProcessor.cs" />
+    <Compile Include="MessageQueue\DistributionConsumerProcessorAsynchronous.cs" />
+    <Compile Include="MessageQueue\DistributionConsumerStream.cs" />
+    <Compile Include="MessageQueue\DistributionConsumerStreamProcessor.cs" />
+    <Compile Include="MessageQueue\UnionType.cs" />
+    <Compile Include="MessageQueue\Consumer.cs" />
+    <Compile Include="MessageQueue\ConsumerAsynchronous.cs" />
+    <Compile Include="MessageQueue\Abstract\Consumer.cs" />
+    <Compile Include="MessageQueue\ConsumerProcessor.cs" />
+    <Compile Include="MessageQueue\ConsumerProcessorAsynchronous.cs" />
+    <Compile Include="MessageQueue\Abstract\ConsumerProcessor.cs" />
+    <Compile Include="Metadata\GenericType.cs" />
+    <Compile Include="Metadata\UnionType.cs" />
+    <Compile Include="OperationParameter\ShortPathOperationNode.cs" />
+    <Compile Include="OperationParameter\ShortPathQueryNode.cs" />
+    <Compile Include="OperationUpdater\Integer.cs" />
+    <Compile Include="OperationUpdater\Logic.cs" />
+    <Compile Include="OperationUpdater\LogicType.cs" />
+    <Compile Include="OperationUpdater\NET4.5\Integer.cs" />
+    <Compile Include="OperationUpdater\OperationType.cs" />
+    <Compile Include="OperationUpdater\NET4.5\Number.cs" />
+    <Compile Include="OperationUpdater\Number.cs" />
+    <Compile Include="ReturnArray.cs" />
+    <Compile Include="ServerCall\CacheGetterGetQueue.cs" />
+    <Compile Include="ServerCall\GetCache.cs" />
+    <Compile Include="ServerCall\OperationAsynchronous.cs" />
+    <Compile Include="ServerCall\SearchTreeDictionaryGetter.cs" />
+    <Compile Include="ServerCall\ShortPathOperationAsynchronous.cs" />
+    <Compile Include="ShortPathIdentity.cs" />
+    <Compile Include="ShortPathItem.cs" />
+    <Compile Include="ShortPath\Array.cs" />
+    <Compile Include="ShortPath\Bitmap.cs" />
+    <Compile Include="ShortPath\Collections.cs" />
+    <Compile Include="ShortPath\Dictionary.cs" />
+    <Compile Include="ShortPath\DictionaryBase.cs" />
+    <Compile Include="ShortPath\HashSet.cs" />
+    <Compile Include="ShortPath\Heap.cs" />
+    <Compile Include="ShortPath\Link.cs" />
+    <Compile Include="ShortPath\MessageQueue.cs" />
+    <Compile Include="ShortPath\NET4.5\Array.cs" />
+    <Compile Include="ShortPath\NET4.5\Bitmap.cs" />
+    <Compile Include="ShortPath\NET4.5\Collections.cs" />
+    <Compile Include="ShortPath\NET4.5\Dictionary.cs" />
+    <Compile Include="ShortPath\NET4.5\DictionaryBase.cs" />
+    <Compile Include="ShortPath\NET4.5\HashSet.cs" />
+    <Compile Include="ShortPath\NET4.5\Heap.cs" />
+    <Compile Include="ShortPath\NET4.5\Link.cs" />
+    <Compile Include="ShortPath\NET4.5\MessageQueue.cs" />
+    <Compile Include="ShortPath\NET4.5\Node.cs" />
+    <Compile Include="ShortPath\NET4.5\SearchTreeDictionary.cs" />
+    <Compile Include="ShortPath\Node.cs" />
+    <Compile Include="ShortPath\Parameter\NET4.5\OperationBool.cs" />
+    <Compile Include="ShortPath\Parameter\NET4.5\OperationReturnValue.cs" />
+    <Compile Include="ShortPath\Parameter\NET4.5\QueryAsynchronousReturnArray.cs" />
+    <Compile Include="ShortPath\Parameter\NET4.5\QueryBool.cs" />
+    <Compile Include="ShortPath\Parameter\NET4.5\QueryInt.cs" />
+    <Compile Include="ShortPath\Parameter\NET4.5\QueryReturnValue.cs" />
+    <Compile Include="ShortPath\Parameter\Node.cs" />
+    <Compile Include="ShortPath\Parameter\OperationBool.cs" />
+    <Compile Include="ShortPath\Parameter\OperationReturnValue.cs" />
+    <Compile Include="ShortPath\Parameter\QueryAsynchronousReturnArray.cs" />
+    <Compile Include="ShortPath\Parameter\QueryBool.cs" />
+    <Compile Include="ShortPath\Parameter\QueryInt.cs" />
+    <Compile Include="ShortPath\Parameter\QueryReturnValue.cs" />
+    <Compile Include="ShortPath\SearchTreeDictionary.cs" />
+    <Compile Include="ShortPath\Parameter\Value.cs" />
+    <Compile Include="SlaveServer.cs" />
+    <Compile Include="SlaveServerConfig.cs" />
+    <Compile Include="Snapshot\Array.cs" />
+    <Compile Include="Snapshot\Cache.cs" />
+    <Compile Include="Cache\HashCodeKey.cs" />
+    <Compile Include="Cache\Value\LinkNode.cs" />
+    <Compile Include="Cache\Value\Node.cs" />
+    <Compile Include="DataStructure\NET4.5\SearchTreeDictionary.cs" />
+    <Compile Include="DataStructure\NET4.5\ValueSearchTreeDictionary.cs" />
+    <Compile Include="Emit\Constructor.cs" />
+    <Compile Include="FileReader.cs" />
+    <Compile Include="FileStreamWriter.cs" />
+    <Compile Include="LoadData.cs" />
+    <Compile Include="OnTime.cs" />
+    <Compile Include="OperationParameter\NodeParser.cs" />
+    <Compile Include="Cache\Array.cs" />
+    <Compile Include="Cache\Dictionary.cs" />
+    <Compile Include="Cache\FragmentArray.cs" />
+    <Compile Include="Cache\FragmentDictionary.cs" />
+    <Compile Include="DataStructureParser.cs" />
+    <Compile Include="Cache\Value\FragmentHashSet.cs" />
+    <Compile Include="Cache\Value\HashSet.cs" />
+    <Compile Include="Cache\Node.cs" />
+    <Compile Include="Cache\SearchTreeDictionary.cs" />
+    <Compile Include="Cache\Value\Array.cs" />
+    <Compile Include="Cache\Value\Dictionary.cs" />
+    <Compile Include="Cache\Value\FragmentArray.cs" />
+    <Compile Include="Cache\Value\FragmentDictionary.cs" />
+    <Compile Include="Cache\Value\Link.cs" />
+    <Compile Include="Cache\Value\SearchTreeDictionary.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="ConfigLoader.cs" />
+    <Compile Include="ClientDataStructure.cs" />
+    <Compile Include="DataStructureItem.cs" />
+    <Compile Include="DataStructure\Abstract\Array.cs" />
+    <Compile Include="DataStructure\Abstract\NET4.5\Array.cs" />
+    <Compile Include="DataStructure\Abstract\NET4.5\NodeDictionary.cs" />
+    <Compile Include="DataStructure\Abstract\NET4.5\ValueArray.cs" />
+    <Compile Include="DataStructure\Abstract\NET4.5\ValueDictionary.cs" />
+    <Compile Include="DataStructure\Abstract\Value.cs" />
+    <Compile Include="DataStructure\Abstract\ValueDictionary.cs" />
+    <Compile Include="DataStructure\Abstract\NodeDictionary.cs" />
+    <Compile Include="DataStructure\Abstract\Collections.cs" />
+    <Compile Include="DataStructure\Abstract\Dictionary.cs" />
+    <Compile Include="DataStructure\Abstract\HashSet.cs" />
+    <Compile Include="DataStructure\Abstract\ValueArray.cs" />
+    <Compile Include="DataStructure\NET4.5\Link.cs" />
+    <Compile Include="DataStructure\Parameter\NET4.5\OperationBool.cs" />
+    <Compile Include="DataStructure\Parameter\NET4.5\OperationReturnValue.cs" />
+    <Compile Include="DataStructure\Parameter\NET4.5\QueryBool.cs" />
+    <Compile Include="DataStructure\Parameter\NET4.5\QueryReturnValue.cs" />
+    <Compile Include="DataStructure\Parameter\Operation.cs" />
+    <Compile Include="DataStructure\Parameter\OperationBool.cs" />
+    <Compile Include="DataStructure\Parameter\QueryReturnValue.cs" />
+    <Compile Include="DataStructure\Parameter\OperationReturnValue.cs" />
+    <Compile Include="DataStructure\Parameter\QueryBool.cs" />
+    <Compile Include="DataStructure\Parameter\QueryInt.cs" />
+    <Compile Include="DataStructure\Parameter\NET4.5\QueryInt.cs" />
+    <Compile Include="DataStructure\Parameter\Node.cs" />
+    <Compile Include="DataStructure\ValueArray.cs" />
+    <Compile Include="DataStructure\ValueDictionary.cs" />
+    <Compile Include="DataStructure\ValueFragmentArray.cs" />
+    <Compile Include="DataStructure\ValueFragmentDictionary.cs" />
+    <Compile Include="DataStructure\Abstract\NET4.5\Collections.cs" />
+    <Compile Include="DataStructure\Abstract\NET4.5\Dictionary.cs" />
+    <Compile Include="DataStructure\Abstract\NET4.5\HashSet.cs" />
+    <Compile Include="DataStructure\Abstract\NodeType.cs" />
+    <Compile Include="DataStructure\ValueSearchTreeDictionary.cs" />
+    <Compile Include="IndexIdentity.cs" />
+    <Compile Include="MasterServer.cs" />
+    <Compile Include="MasterServerConfig.cs" />
+    <Compile Include="NET4.5\Client.cs" />
+    <Compile Include="OperationParameter\ClientDataStructure.cs" />
+    <Compile Include="OperationParameter\QueryNode.cs" />
+    <Compile Include="OperationParameter\OperationNode.cs" />
+    <Compile Include="OperationParameter\OperationType.cs" />
+    <Compile Include="OperationParameter\RemoveDataStructure.cs" />
+    <Compile Include="OperationParameter\Serializer.cs" />
+    <Compile Include="ReadFileParameter.cs" />
+    <Compile Include="ReturnParameter.cs" />
+    <Compile Include="ReturnType.cs" />
+    <Compile Include="ReturnValue.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="ServerCall\CacheManager.cs" />
+    <Compile Include="ServerCall\CacheManagerServerCallType.cs" />
+    <Compile Include="ServerConfig.cs" />
+    <Compile Include="DataStructureBuffer.cs" />
+    <Compile Include="ServerDataStructure.cs" />
+    <Compile Include="Snapshot\Dictionary.cs" />
+    <Compile Include="Snapshot\Node.cs" />
+    <Compile Include="Snapshot\NoSerialize.cs" />
+    <Compile Include="Snapshot\ServerDataStructure.cs" />
+    <Compile Include="Snapshot\Value\Array.cs" />
+    <Compile Include="Snapshot\Value\Bitmap.cs" />
+    <Compile Include="Snapshot\Value\Dictionary.cs" />
+    <Compile Include="Snapshot\Value\HashSet.cs" />
+    <Compile Include="Snapshot\Value\Link.cs" />
+    <Compile Include="NET4.5\StaticRoute.cs" />
+    <Compile Include="StaticRoute.cs" />
+    <Compile Include="UnionType.cs" />
+    <Compile Include="ValueData\BinarySerializer.cs" />
+    <Compile Include="ValueData\Decimal.cs" />
+    <Compile Include="DataStructure\Array.cs" />
+    <Compile Include="DataStructure\Value\Binary.cs" />
+    <Compile Include="DataStructure\FragmentHashSet.cs" />
+    <Compile Include="DataStructure\HashSet.cs" />
+    <Compile Include="DataStructure\Dictionary.cs" />
+    <Compile Include="DataStructure\FragmentArray.cs" />
+    <Compile Include="DataStructure\FragmentDictionary.cs" />
+    <Compile Include="DataStructure\Link.cs" />
+    <Compile Include="DataStructure\Abstract\Node.cs" />
+    <Compile Include="DataStructure\SearchTreeDictionary.cs" />
+    <Compile Include="DataStructure\Value\Json.cs" />
+    <Compile Include="ValueData\GetData.cs" />
+    <Compile Include="ValueData\Guid.cs" />
+    <Compile Include="ValueData\JsonSerializer.cs" />
+    <Compile Include="ValueData\Data.cs" />
+    <Compile Include="ValueData\Bit64.cs" />
+    <Compile Include="ValueData\DataType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueData\SetData.cs" />
+    <Compile Include="ValueData\UnionType.cs" />
+    <Compile Include="OperationUpdater\Data.cs" />
+    <Compile Include="OperationUpdater\UpdateData.cs" />
+    <Compile Include="OperationUpdater\UpdateOperationData.cs" />
+    <Compile Include="{AutoCSer.CacheServer}.AutoCSer.cs" />
+    <Compile Include="{AutoCSer.CacheServer}.CombinationTemplate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoCSer.NetStandard.csproj" />
+    <ProjectReference Include="..\Sort\AutoCSer.Sort.NetStandard.csproj" />
+  </ItemGroup>
+
+</Project>

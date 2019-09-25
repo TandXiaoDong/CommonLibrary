@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--Include:Include\LoadHeader[,内存数据库缓存服务组件]-->
+<body>
+    <p>
+        AutoCSer 包含一个支持日志流持久化的高性能内存数据库缓存服务组件，支持若干<a href="/Config/Index.html">全局默认配置</a>，需要引用 <a href="/Index.html" title="Go to the home page to download">AutoCSer</a>\Packet\*\AutoCSer.dll + AutoCSer.Sort.dll + AutoCSer.CacheServer.dll 。
+    </p>
+    <div><h1>基本数据类型</h1></div>
+    <div>
+        <p>
+            . 整数类型 <b>byte</b>, <b>sbyte</b>, <b>short</b>, <b>ushort</b>, <b>int</b>, <b>uint</b>, <b>long</b>, <b>ulong</b>
+        </p>
+        <p>
+            . 数字类型（包括整数类型）+ <b>float</b>, <b>double</b>, <b>decimal</b>
+        </p>
+        <p>
+            . 可排序类型（包括数字类型）+ <b>char</b>, <b>DateTime</b>, <b>string</b>
+        </p>
+        <p>
+            . 关键字类型（包括可排序类型）+ <b>Guid</b>
+        </p>
+        <p>
+            . 基本数据类型（包括关键字类型）+ <b>bool</b>, <b>byte[]</b>
+        </p>
+        <p>
+            . <b>JSON</b> 序列化包装类型 AutoCSer.CacheServer.DataStructure.Value.<b>Json</b>&lt;valueType&gt;
+        </p>
+        <p>
+            . <b>二进制序列化</b>包装类型 AutoCSer.CacheServer.DataStructure.Value.<b>Binary</b>&lt;valueType&gt;
+        </p>
+    </div>
+    <div><h1>数据节点</h1></div>
+    <div>
+        <p>
+            . <b>数组</b> AutoCSer.CacheServer.DataStructure.<b>ValueArray</b>&lt;valueType&gt; / AutoCSer.CacheServer.DataStructure.<b>ValueFragmentArray</b>&lt;valueType&gt;
+            <br /> <b>valueType</b> 可以为任意 <b>基本数据类型</b>，<b>数字类型</b> 可以通过扩展方法 <b>GetNumberUpdater</b> 获取更新对象，<b>整数类型</b> 可以通过扩展方法 <b>GetIntegerUpdater</b> 获取更新对象
+            <!--Include:Include\GetCode[Example,0,,CacheServer\ValueArray.cs]-->
+        </p>
+        <p>
+            . <b>字典</b> AutoCSer.CacheServer.DataStructure.<b>ValueDictionary</b>&lt;keyType, valueType&gt; / AutoCSer.CacheServer.DataStructure.<b>ValueFragmentDictionary</b>&lt;keyType, valueType&gt;
+            <br /> <b>keyType</b> 为 <b>关键字类型</b>，<b>valueType</b> 可以为任意 <b>基本数据类型</b>，<b>数字类型</b> 可以通过扩展方法 <b>GetNumberUpdater</b> 获取更新对象，<b>整数类型</b> 可以通过扩展方法 <b>GetIntegerUpdater</b> 获取更新对象
+            <!--Include:Include\GetCode[Example,1,,CacheServer\ValueDictionary.cs]-->
+        </p>
+        <p>
+            . <b>搜索树字典</b> AutoCSer.CacheServer.DataStructure.<b>ValueSearchTreeDictionary</b>&lt;keyType, valueType&gt;
+            <br /> <b>keyType</b> 为 <b>排序关键字类型</b>，<b>valueType</b> 可以为任意 <b>基本数据类型</b>，<b>数字类型</b> 可以通过扩展方法 <b>GetNumberUpdater</b> 获取更新对象，<b>整数类型</b> 可以通过扩展方法 <b>GetIntegerUpdater</b> 获取更新对象
+            <!--Include:Include\GetCode[Example,2,,CacheServer\ValueSearchTreeDictionary.cs]-->
+        </p>
+        <p>
+            . <b>最小堆</b> AutoCSer.CacheServer.DataStructure.<b>Heap</b>&lt;keyType, valueType&gt;
+            <br /> <b>keyType</b> 为 <b>排序关键字类型</b>，<b>valueType</b> 可以为任意 <b>基本数据类型</b>
+            <!--Include:Include\GetCode[Example,b,,CacheServer\Heap.cs]-->
+        </p>
+        <p>
+            . <b>哈希表</b> AutoCSer.CacheServer.DataStructure.<b>HashSet</b>&lt;valueType&gt; / AutoCSer.CacheServer.DataStructure.<b>FragmentHashSet</b>&lt;valueType&gt;
+            <br /> <b>valueType</b> 为 <b>关键字类型</b>
+            <!--Include:Include\GetCode[Example,3,,CacheServer\HashSet.cs]-->
+        </p>
+        <p>
+            . <b>链表</b> AutoCSer.CacheServer.DataStructure.<b>Link</b>&lt;valueType&gt;
+            <br /> <b>valueType</b> 可以为任意 <b>基本数据类型</b>
+            <!--Include:Include\GetCode[Example,4,,CacheServer\Link.cs]-->
+        </p>
+        <p>
+            . <b>位图</b> AutoCSer.CacheServer.DataStructure.<b>Bitmap</b>
+            <!--Include:Include\GetCode[Example,5,,CacheServer\Bitmap.cs]-->
+        </p>
+        <p>
+            . <b>锁</b> AutoCSer.CacheServer.DataStructure.<b>Lock</b>
+            <!--Include:Include\GetCode[Example,6,,CacheServer\Lock.cs]-->
+        </p>
+        <p>
+            . <b><a href="/CacheServer/MessageQueue.html">消息队列</a></b> AutoCSer.CacheServer.DataStructure.MessageQueue.<b>QueueConsumer</b>&lt;valueType&gt; / AutoCSer.CacheServer.DataStructure.MessageQueue.<b>QueueConsumers</b>&lt;valueType&gt;
+            <br /> <b>valueType</b> 可以为任意 <b>基本数据类型</b>，前者只允许一个消费者，后者允许最多 65536 个消费者，每个消费者都将顺序处理所有消息。
+            <!--Include:Include\GetCode[Example,7,,CacheServer\MesssageQueueConsumer.cs]-->
+            <!--Include:Include\GetCode[Example,8,,CacheServer\MesssageQueueConsumers.cs]-->
+        </p>
+        <p>
+            . <b>消息分发</b> AutoCSer.CacheServer.DataStructure.MessageQueue.<b>Distributor</b>&lt;valueType&gt;
+            <br /> <b>valueType</b> 可以为任意 <b>基本数据类型</b>，服务端将消息适度轮流的推送到每个客户端消费者，不保证消息的消费顺序。
+            <!--Include:Include\GetCode[Example,c,,CacheServer\MesssageDistributor.cs]-->
+        </p>
+        <p>
+            . 某些 <b>数据节点</b> 提供 <b>CreateShortPath()</b> 方法支持短路径操作，用于降低深度嵌套的<b>数据节点</b>服务端解析开销，它的过期重建操作会对客户端异步操作产生同步阻塞，示例代码参考 <b>嵌套节点</b>
+        </p>
+    </div>
+    <div><h1>嵌套节点</h1></div>
+    <div>
+        <p>
+            . <b>数组</b> AutoCSer.CacheServer.DataStructure.<b>Array</b>&lt;nodeType&gt; / AutoCSer.CacheServer.DataStructure.<b>FragmentArray</b>&lt;nodeType&gt;
+            <br /> <b>nodeType</b> 为 <b>嵌套节点</b> 或者 <b>数据节点</b>
+            <!--Include:Include\GetCode[Example,9,,CacheServer\Array.cs]-->
+        </p>
+        <p>
+            . <b>字典</b> AutoCSer.CacheServer.DataStructure.<b>Dictionary</b>&lt;keyType, nodeType&gt; / AutoCSer.CacheServer.DataStructure.<b>FragmentDictionary</b>&lt;keyType, nodeType&gt;
+            <br /> <b>keyType</b> 为 <b>关键字类型</b>，<b>nodeType</b> 为 <b>嵌套节点</b> 或者 <b>数据节点</b>
+            <!--Include:Include\GetCode[Example,a,,CacheServer\Dictionary.cs]-->
+        </p>
+        <p>
+            . <b>搜索树字典</b> AutoCSer.CacheServer.DataStructure.<b>SearchTreeDictionary</b>&lt;keyType, nodeType&gt;
+            <br /> <b>keyType</b> 为 <b>排序关键字类型</b>，<b>nodeType</b> 为 <b>嵌套节点</b> 或者 <b>数据节点</b>
+            <!--Include:Include\GetCode[Example,d,,CacheServer\SearchTreeDictionary.cs]-->
+        </p>
+    </div>
+    <div>
+        <p>
+            性能测试项目
+            <br /><a href="/Index.html" title="Go to the home page to download">AutoCSer</a>\TestCase\CacheServerPerformance\AutoCSer.TestCase.CacheServerPerformance
+            <br /><a href="/Index.html" title="Go to the home page to download">AutoCSer</a>\TestCase\CacheClientPerformance\AutoCSer.TestCase.CacheClientPerformance
+        </p>
+    </div>
+</body>
+</html>
