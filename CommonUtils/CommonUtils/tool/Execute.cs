@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using CommonUtils.Logger;
 
 namespace CommonUtils.tool
 {
@@ -16,16 +17,23 @@ namespace CommonUtils.tool
                 Process process = new Process();
                 process.StartInfo.WorkingDirectory = targetPath;
                 process.StartInfo.FileName = executeFileName;
-
-                // 当我们需要给可执行文件传入参数时候可以设置这个参数
-                // "para1 para2 para3" 参数为字符串形式，每一个参数用空格隔开
-                //process.StartInfo.Arguments = "para1 para2 para3";
                 //process.StartInfo.UseShellExecute = true;        // 使用操作系统shell启动进程
-                                                                 // 启动可执行文件
-                return process.Start();
+                //process.StartInfo.Arguments = "";
+                //process.StartInfo.UseShellExecute = false;//是否重定向标准输入 
+                //process.StartInfo.RedirectStandardInput = false;//是否重定向标准转出 
+                //process.StartInfo.RedirectStandardOutput = false;//是否重定向错误 
+                process.StartInfo.RedirectStandardError = false;//执行时是不是显示窗口 
+                process.StartInfo.CreateNoWindow = true;//启动 
+                bool b = process.Start();
+                process.WaitForExit();
+                process.Close();
+                if (b)
+                    return true;
+                return false;
             }
             catch (Exception ex)
             {
+                LogHelper.Log.Error($"执行可执行文件失败！路径={targetPath}\r\n Err="+ex.Message+ex.StackTrace);
                 return false;
             }
         }
