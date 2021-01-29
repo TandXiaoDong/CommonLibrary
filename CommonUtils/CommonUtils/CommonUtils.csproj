@@ -13,7 +13,7 @@
     <PackageReference Include="Cogito.Web.UI" Version="3.0.0" />
     <PackageReference Include="ICSharpCode.SharpZipLib.Patched" Version="0.86.5.1" />
     <PackageReference Include="iTextSharp" Version="5.5.13" />
-    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="log4net" Version="2.0.10" />
     <PackageReference Include="MySql.Data" Version="8.0.15" />
     <PackageReference Include="ServiceStack.Redis" Version="5.5.0" />
     <PackageReference Include="ZedGraph" Version="5.1.7" />
